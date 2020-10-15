@@ -118,7 +118,7 @@
                        Grid.Column="1"
                        Grid.ColumnSpan="2"/>
 
-            <Button Text="Pagar for S/.200"
+            <Button Text="Pagar S/.200"
                     BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
                     CornerRadius="26"
                     FontSize="18"

@@ -14,5 +14,18 @@ namespace MyNiubizApp.Views
             InitializeComponent();
             BindingContext = _viewModel = new CreditCardPageViewModel();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (App.configuration.Response != null)
+            {
+                DisplayAlert("Response", App.configuration.Response, "Ok");
+            }
+            else
+            {
+                DisplayAlert("Reponse", "Not ok", "Ok");
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace MyNiubizApp.ViewModels
 
         public CreditCardPageViewModel()
         {
-            Title = "Pagar compra";
+            Title = "Compra";
             TestCommand = new Command(OnTest);
         }
 
