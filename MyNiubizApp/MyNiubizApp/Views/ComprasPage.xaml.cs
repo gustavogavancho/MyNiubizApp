@@ -14,5 +14,14 @@ namespace MyNiubizApp.Views
             InitializeComponent();
             BindingContext = _viewModel = new ComprasViewModel();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (App.configuration.Response != null)
+            {
+                DisplayAlert("Response", App.configuration.Response, "Ok");
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@
              x:Class="MyNiubizApp.Views.ComprasPage"
              Title="{Binding Title}">
     <StackLayout>
-        <Button Text="Comprar" Command="{Binding ComprarCommand}"/>
-        <!--<Button Text="LevantarFormulario" Command="{Binding LevantarFormularioCommand}"/>-->
+        <Button Text="Formulario Particular" Command="{Binding ComprarCommand}"/>
+        <Button Text="Formulario de Visatnet (Niubiz)" Command="{Binding LevantarFormularioCommand}"/>
     </StackLayout>
 </ContentPage>

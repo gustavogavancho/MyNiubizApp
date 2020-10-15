@@ -19,6 +19,11 @@ namespace MyNiubizApp
                 configuration = new ConfigurationController();
                  InitializeComponent();
                 //MainPage = new AppShell();
+                //MainPage = new NavigationPage(new ComprasPage());
+
+                //Credenciales
+                configuration.Credential.User = "integraciones.visanet@necomplus.com";
+                configuration.Credential.Password = "d5e7nk$M";
 
                 //Environment
                 configuration.Environment.Protocol = "https://";
@@ -53,7 +58,6 @@ namespace MyNiubizApp
                 configuration.UserInterface.buttonPaymentText = "PAGAR "; 
                 configuration.UserInterface.buttonPaymentAmountText += configuration.Session.amount.ToString("c");
                 configuration.UserInterface.buttonPaymentTextComplete = $"{configuration.UserInterface.buttonPaymentText} {configuration.UserInterface.buttonPaymentAmountText}";
-
 
                 //Config varios
                 configuration.AntiFraude.clientIp = "10.0.2.15";//quitar           

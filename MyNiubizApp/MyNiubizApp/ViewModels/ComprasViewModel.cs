@@ -19,7 +19,8 @@ namespace MyNiubizApp.ViewModels
 
         private async void OnLevantarFormulario(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(FormCreditCard));
+            //await Application.Current.MainPage.Navigation.PushAsync(new FormCreditCard(App.configuration));
+            await Shell.Current.Navigation.PushAsync(new FormCreditCard(App.configuration));
         }
 
         private async void OnComprar(object obj)
