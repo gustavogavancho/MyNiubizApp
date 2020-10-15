@@ -18,7 +18,7 @@ namespace MyNiubizApp
             {
                 configuration = new ConfigurationController();
                  InitializeComponent();
-                //MainPage = new AppShell();
+                MainPage = new AppShell();
                 //MainPage = new NavigationPage(new ComprasPage());
 
                 //Credenciales
@@ -98,7 +98,7 @@ namespace MyNiubizApp
                 configuration.Ecommerce.cardHolder.documentType = 0;
                 configuration.Security.accessToken = "eZ2lhbmNhZ2FsebGFyZG9AZ2e1haWwuY29tOkF2fMyR0cnV6";
 
-                MainPage = new NavigationPage(new FormCreditCard(configuration));
+                //MainPage = new NavigationPage(new FormCreditCard(configuration));
             }
             catch (Exception ex)
             {
