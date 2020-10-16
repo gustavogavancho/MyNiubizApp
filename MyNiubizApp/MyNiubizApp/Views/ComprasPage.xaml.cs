@@ -1,4 +1,5 @@
-﻿using MyNiubizApp.ViewModels;
+﻿using MyNiubizApp.Services;
+using MyNiubizApp.ViewModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,18 +10,21 @@ namespace MyNiubizApp.Views
     public partial class ComprasPage : ContentPage
     {
         ComprasViewModel _viewModel;
+        ConfigurarVisanet _configurarVisanet;
         public ComprasPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new ComprasViewModel();
+            _configurarVisanet = new ConfigurarVisanet();
+            _configurarVisanet.SettearValores();
+            BindingContext = _viewModel = new ComprasViewModel(_configurarVisanet.Configuration);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            if (App.configuration.Response != null)
+            if (_configurarVisanet.Configuration.Response != null)
             {
-                DisplayAlert("Response", App.configuration.Response, "Ok");
+                DisplayAlert("Response", _configurarVisanet.Configuration.Response, "Ok");
             }
         }
     }
