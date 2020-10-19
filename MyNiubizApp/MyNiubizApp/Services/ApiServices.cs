@@ -19,6 +19,7 @@ namespace MyNiubizApp.Services
             HttpWebResponse responseObj = null;
              responseObj =  (HttpWebResponse)requestObj.GetResponse();
             string strresult = null;
+
             using (Stream stream = responseObj.GetResponseStream())
             {
                 StreamReader sr = new StreamReader(stream);

@@ -1,6 +1,6 @@
 ﻿using MyNiubizApp.Services;
 using MyNiubizApp.ViewModels;
-
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,10 +21,17 @@ namespace MyNiubizApp.Views
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            if (_configurarVisanet.Configuration.Response != null)
+            try
             {
-                DisplayAlert("Response", _configurarVisanet.Configuration.Response, "Ok");
+                base.OnAppearing();
+                if (_configurarVisanet.Configuration.Response != null)
+                {
+                    DisplayAlert("Response", _configurarVisanet.Configuration.Response, "Ok");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }
