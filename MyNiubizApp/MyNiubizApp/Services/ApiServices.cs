@@ -1,12 +1,9 @@
 ﻿using MyNiubizApp.Models;
-using Nancy.Json;
 using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MyNiubizApp.Services
 {
@@ -43,7 +40,7 @@ namespace MyNiubizApp.Services
                 amount = 1005,
                 antifraud = new Antifraud
                 {
-                    clientIp = "24.252.107.29",
+                    //clientIp = "24.252.107.29",
                     merchantDefineData = new MerchantDefineData
                     {
                         MDD15 = "Valor MDD 15",

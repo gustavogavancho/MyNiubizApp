@@ -28,7 +28,7 @@ namespace MyNiubizApp.Services
                 var getResponse = ApiServices.AuthorizeCredential();
                 Configuration.Security = new Security();
                 Configuration.Security.keys = new List<Keys>();
-                Configuration.Security.accessToken = getResponse.accessToken;
+                Configuration.Security.accessToken = $"{getResponse.accessToken}";
                 foreach (var item in getResponse.keys)
                 {
                     Keys key = new Keys
@@ -40,14 +40,14 @@ namespace MyNiubizApp.Services
                     Configuration.Security.keys.Add(key);
                 }
 
-                var getResponse2 = ApiServices.AuthorizeSession(341198214, Configuration.Security.accessToken);
+                //var getResponse2 = ApiServices.AuthorizeSession(341198214, Configuration.Security.accessToken);
 
                 Configuration.Session = new Session();
                 Configuration.Session.amount = 1000.00;
-                Configuration.Session.channel = "web";
+                Configuration.Session.channel = "MOBILE";
                 Configuration.Session.merchantId = "341198214";
-                Configuration.Session.sessionKey = getResponse2.sessionKey;
-                Configuration.Session.expirationTime = getResponse2.expirationTime.ToString();
+                //Configuration.Session.sessionKey = getResponse2.sessionKey;
+                //Configuration.Session.expirationTime = getResponse2.expirationTime.ToString();
 
                 Configuration.Transaction = new Transaction();
                 //Transaction
@@ -80,6 +80,12 @@ namespace MyNiubizApp.Services
                 
                 Configuration.BillingAddress = new BillingAddress();
                 Configuration.Ecommerce = new Ecommerce();
+                Configuration.Ecommerce.antifraud = new AntiFraude();
+                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD8", "TempMDD8");
+                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD50", "TempMDD50");
+                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD40", "TempMDD40");
+                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD20", "TempMDD20");
+                
                 Configuration.Ecommerce.cardHolder = new CardHolder();
                 Configuration.Transaction.card.verify = 0;
                 Configuration.Transaction.card.alias = "";
@@ -102,6 +108,8 @@ namespace MyNiubizApp.Services
                 Configuration.Ecommerce.order = Configuration.Transaction.order;
                 Configuration.Ecommerce.cardHolder.documentNumber = "";
                 Configuration.Ecommerce.cardHolder.documentType = 0;
+
+                Configuration.BackendPublicKey = "";
             }
             catch (Exception ex)
             {
