@@ -15,8 +15,7 @@ namespace MyNiubizApp.Views
         {
             InitializeComponent();
             _configurarVisanet = new ConfigurarVisanet();
-            _configurarVisanet.SettearValores();
-            BindingContext = _viewModel = new ComprasViewModel(_configurarVisanet.Configuration);
+            BindingContext = _viewModel = new ComprasViewModel(_configurarVisanet);
         }
 
         protected override void OnAppearing()

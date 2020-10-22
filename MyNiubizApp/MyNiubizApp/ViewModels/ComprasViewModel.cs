@@ -1,4 +1,5 @@
-﻿using MyNiubizApp.Views;
+﻿using MyNiubizApp.Services;
+using MyNiubizApp.Views;
 using System;
 using Visanet.Controllers;
 using Visanet.Views;
@@ -11,9 +12,9 @@ namespace MyNiubizApp.ViewModels
         public Command ComprarCommand { get; }
         public Command LevantarFormularioCommand { get; }
 
-        ConfigurationController _configuration;
+        ConfigurarVisanet _configuration;
 
-        public ComprasViewModel(ConfigurationController configuration)
+        public ComprasViewModel(ConfigurarVisanet configuration)
         {
             Title = "Compras";
             _configuration = configuration;
@@ -23,8 +24,9 @@ namespace MyNiubizApp.ViewModels
 
         private async void OnLevantarFormulario(object obj)
         {
+            _configuration.SettearValores();
             //await Application.Current.MainPage.Navigation.PushAsync(new FormCreditCard(App.configuration));
-            await Shell.Current.Navigation.PushAsync(new FormCreditCard(_configuration));
+            await Shell.Current.Navigation.PushAsync(new FormCreditCard(_configuration.Configuration));
         }
 
         private async void OnComprar(object obj)

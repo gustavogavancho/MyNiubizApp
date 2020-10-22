@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Visanet.Controllers;
 using Visanet.Models;
 
@@ -12,7 +13,6 @@ namespace MyNiubizApp.Services
         public void SettearValores()
         {
             try
-            
             {
                 //Credenciales
                 Configuration.Credential = new Credential();
@@ -26,6 +26,7 @@ namespace MyNiubizApp.Services
                 Configuration.Environment.Host = "apitestenv.vnforapps.com/";
 
                 var getResponse = ApiServices.AuthorizeCredential();
+
                 Configuration.Security = new Security();
                 Configuration.Security.keys = new List<Keys>();
                 Configuration.Security.accessToken = $"{getResponse.accessToken}";
@@ -43,16 +44,18 @@ namespace MyNiubizApp.Services
                 //var getResponse2 = ApiServices.AuthorizeSession(341198214, Configuration.Security.accessToken);
 
                 Configuration.Session = new Session();
-                Configuration.Session.amount = 1000.00;
-                Configuration.Session.channel = "MOBILE";
+                Configuration.Session.amount = 100.00;
                 Configuration.Session.merchantId = "341198214";
+                Configuration.Session.channel = "mobile";
                 //Configuration.Session.sessionKey = getResponse2.sessionKey;
                 //Configuration.Session.expirationTime = getResponse2.expirationTime.ToString();
 
                 Configuration.Transaction = new Transaction();
                 //Transaction
                 Configuration.Transaction.order = new Order();
+                Configuration.Transaction.channel = Configuration.Session.channel;
                 Configuration.Transaction.order.purchaseNumber = "1016677700";
+                Configuration.Transaction.order.currency = "PEN";
                 Configuration.Transaction.customer = new Customer();
                 Configuration.Transaction.customer.firstName = "Nombre";
                 Configuration.Transaction.customer.lastName = "Apellido";
@@ -69,31 +72,38 @@ namespace MyNiubizApp.Services
                 Configuration.UserInterface.nombreEnable = true;
                 Configuration.UserInterface.apellidoEnable = true;
                 Configuration.UserInterface.correoEnable = true;
-                Configuration.UserInterface.pageColor = "White";
                 Configuration.UserInterface.buttonPaymentAmount = true;
-                Configuration.UserInterface.nombreComercio = "Black";
+                Configuration.UserInterface.nombreComercio = "Swiftline";
                 Configuration.UserInterface.buttonPaymentColor = "Black";
                 Configuration.UserInterface.buttonPaymentTextColor = "White";
                 Configuration.UserInterface.buttonPaymentText = "PAGAR ";
                 Configuration.UserInterface.buttonPaymentAmountText += Configuration.Session.amount;
                 Configuration.UserInterface.buttonPaymentTextComplete = $"{Configuration.UserInterface.buttonPaymentText} {Configuration.UserInterface.buttonPaymentAmountText}";
-                
+
                 Configuration.BillingAddress = new BillingAddress();
                 Configuration.Ecommerce = new Ecommerce();
                 Configuration.Ecommerce.antifraud = new AntiFraude();
+
+                Configuration.Ecommerce.antifraud.merchantDefineData = new Dictionary<string, string>();
                 Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD8", "TempMDD8");
                 Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD50", "TempMDD50");
                 Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD40", "TempMDD40");
                 Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD20", "TempMDD20");
-                
+
                 Configuration.Ecommerce.cardHolder = new CardHolder();
+                Configuration.Transaction.card = new Card();
+
                 Configuration.Transaction.card.verify = 0;
                 Configuration.Transaction.card.alias = "";
                 Configuration.Transaction.card.tokenId = "";
                 Configuration.Transaction.card.alias = "";
+
+                Configuration.Transaction.customer = new Customer();
                 Configuration.Transaction.customer.phoneNumber = "";
                 Configuration.Transaction.customer.documentType = 0;
                 Configuration.Transaction.customer.documentNumber = "";
+
+                Configuration.Transaction.alias = new Alias();
                 Configuration.Transaction.alias.aliasId = "";
                 Configuration.Transaction.alias.aliasName = "";
                 Configuration.Transaction.alias.cvv2 = "123";
