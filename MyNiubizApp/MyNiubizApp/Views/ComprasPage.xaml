@@ -6,5 +6,10 @@
     <StackLayout>
         <Button Text="Formulario Particular" Command="{Binding ComprarCommand}"/>
         <Button Text="Formulario de Visatnet (Niubiz)" Command="{Binding LevantarFormularioCommand}"/>
+        <Button Text="Formulario de Prueba (Niubiz)" Command="{Binding LevantarFormularioPruebaCommand}"/>
+        <Button Text="Formulario de Prueba2 (Niubiz)" Command="{Binding LevantarFormularioPrueba2Command}"/>
+        <Button Text="Formulario de Prueba3 (Niubiz)" Command="{Binding LevantarFormularioPrueba3Command}"/>
+        <Button Text="Formulario de Prueba4 (Niubiz)" Command="{Binding LevantarFormularioPrueba4Command}"/>
+        <Button Text="Formulario de Prueba5 (Niubiz)" Command="{Binding LevantarFormularioPrueba5Command}"/>
     </StackLayout>
 </ContentPage>

@@ -96,7 +96,6 @@ namespace MyNiubizApp.Services
                 Configuration.Transaction.card.verify = 0;
                 Configuration.Transaction.card.alias = "";
                 Configuration.Transaction.card.tokenId = "";
-                Configuration.Transaction.card.alias = "";
 
                 Configuration.Transaction.customer = new Customer();
                 Configuration.Transaction.customer.phoneNumber = "";
@@ -106,8 +105,8 @@ namespace MyNiubizApp.Services
                 Configuration.Transaction.alias = new Alias();
                 Configuration.Transaction.alias.aliasId = "";
                 Configuration.Transaction.alias.aliasName = "";
-                Configuration.Transaction.alias.cvv2 = "123";
-                Configuration.Transaction.alias.requestCVV2 = 1;
+                //Configuration.Transaction.alias.cvv2 = "123";
+                //Configuration.Transaction.alias.requestCVV2 = 1;
                 Configuration.Transaction.alias.userToken = "mail@hotmail.com";
                 Configuration.Ecommerce.terminalId = "1";
                 Configuration.Ecommerce.channel = Configuration.Session.channel;
