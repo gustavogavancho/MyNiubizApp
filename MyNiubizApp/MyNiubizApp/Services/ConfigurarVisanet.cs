@@ -44,7 +44,7 @@ namespace MyNiubizApp.Services
                 //var getResponse2 = ApiServices.AuthorizeSession(341198214, Configuration.Security.accessToken);
 
                 Configuration.Session = new Session();
-                Configuration.Session.amount = 100.00;
+                Configuration.Session.amount = 100.50;
                 Configuration.Session.merchantId = "341198214";
                 Configuration.Session.channel = "mobile";
                 //Configuration.Session.sessionKey = getResponse2.sessionKey;
@@ -63,7 +63,7 @@ namespace MyNiubizApp.Services
 
                 //User Interface
                 Configuration.UserInterface = new UserInterface();
-                Configuration.UserInterface.pageColor = "White";
+                Configuration.UserInterface.pageColor = "#DC5538";
                 Configuration.UserInterface.entryBorderColor = System.Drawing.Color.LightGray;
                 Configuration.UserInterface.logo = "logo.png";
                 Configuration.UserInterface.logoHeight = 85;
@@ -77,46 +77,53 @@ namespace MyNiubizApp.Services
                 Configuration.UserInterface.buttonPaymentColor = "Black";
                 Configuration.UserInterface.buttonPaymentTextColor = "White";
                 Configuration.UserInterface.buttonPaymentText = "PAGAR ";
-                Configuration.UserInterface.buttonPaymentAmountText += Configuration.Session.amount;
-                Configuration.UserInterface.buttonPaymentTextComplete = $"{Configuration.UserInterface.buttonPaymentText} {Configuration.UserInterface.buttonPaymentAmountText}";
+                Configuration.UserInterface.buttonPaymentAmountText = Configuration.Session.amount.ToString("n");
+                Configuration.UserInterface.nombreComercioShow = true;
+                //Configuration.UserInterface.buttonPaymentAmount = true;
 
-                Configuration.BillingAddress = new BillingAddress();
-                Configuration.Ecommerce = new Ecommerce();
-                Configuration.Ecommerce.antifraud = new AntiFraude();
+                //Configuration.UserInterface.buttonPaymentTextComplete = $"{Configuration.UserInterface.buttonPaymentText} {Configuration.UserInterface.buttonPaymentAmountText}";
 
-                Configuration.Ecommerce.antifraud.merchantDefineData = new Dictionary<string, string>();
-                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD8", "TempMDD8");
-                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD50", "TempMDD50");
-                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD40", "TempMDD40");
-                Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD20", "TempMDD20");
+                //Configuration.BillingAddress = new BillingAddress();
+                //Configuration.Ecommerce = new Ecommerce();
+                //Configuration.Ecommerce.antifraud = new AntiFraude();
 
-                Configuration.Ecommerce.cardHolder = new CardHolder();
-                Configuration.Transaction.card = new Card();
+                //Configuration.Ecommerce.antifraud.merchantDefineData = new Dictionary<string, string>();
+                //Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD8", "TempMDD8");
+                //Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD50", "TempMDD50");
+                //Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD40", "TempMDD40");
+                //Configuration.Ecommerce.antifraud.merchantDefineData.Add("MDD20", "TempMDD20");
 
-                Configuration.Transaction.card.verify = 0;
-                Configuration.Transaction.card.alias = "";
-                Configuration.Transaction.card.tokenId = "";
+                //Configuration.Ecommerce.cardHolder = new CardHolder();
+                //Configuration.Transaction.card = new Card();
 
-                Configuration.Transaction.customer = new Customer();
-                Configuration.Transaction.customer.phoneNumber = "";
-                Configuration.Transaction.customer.documentType = 0;
-                Configuration.Transaction.customer.documentNumber = "";
+                //Configuration.Transaction.card.verify = 0;
+                //Configuration.Transaction.card.alias = "";
+                //Configuration.Transaction.card.tokenId = "";
 
-                Configuration.Transaction.alias = new Alias();
-                Configuration.Transaction.alias.aliasId = "";
-                Configuration.Transaction.alias.aliasName = "";
+                //Configuration.Transaction.customer = new Customer();
+                //Configuration.Transaction.customer.phoneNumber = "";
+                //Configuration.Transaction.customer.documentType = 0;
+                //Configuration.Transaction.customer.documentNumber = "";
+
+                //Configuration.Transaction.alias = new Alias();
+                //Configuration.Transaction.alias.aliasId = "";
+                //Configuration.Transaction.alias.aliasName = "";
                 //Configuration.Transaction.alias.cvv2 = "123";
                 //Configuration.Transaction.alias.requestCVV2 = 1;
-                Configuration.Transaction.alias.userToken = "mail@hotmail.com";
-                Configuration.Ecommerce.terminalId = "1";
+
+                //Configuration.Transaction.alias.userToken = "mail@hotmail.com";
+                //Configuration.Ecommerce.terminalId = "1";
+
                 Configuration.Ecommerce.channel = Configuration.Session.channel;
-                Configuration.Ecommerce.terminalUnattended = 0;
+                //Configuration.Ecommerce.terminalUnattended = 0;
                 Configuration.Ecommerce.captureType = "manual";
-                Configuration.Ecommerce.countable = 1;
-                Configuration.Ecommerce.antifraud = Configuration.AntiFraude;
+
+                //Configuration.Ecommerce.countable = 1;
+
+                //Configuration.Ecommerce.antifraud = Configuration.AntiFraude;
                 Configuration.Ecommerce.order = Configuration.Transaction.order;
-                Configuration.Ecommerce.cardHolder.documentNumber = "";
-                Configuration.Ecommerce.cardHolder.documentType = 0;
+                //Configuration.Ecommerce.cardHolder.documentNumber = "";
+                //Configuration.Ecommerce.cardHolder.documentType = 0;
 
                 Configuration.BackendPublicKey = "";
             }

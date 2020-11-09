@@ -1,5 +1,6 @@
 ﻿using MyNiubizApp.Services;
 using MyNiubizApp.ViewModels;
+using Newtonsoft.Json;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -26,7 +27,9 @@ namespace MyNiubizApp.Views
                 if (_configurarVisanet.Configuration.Response != null)
                 {
                     DisplayAlert("Response", _configurarVisanet.Configuration.Response, "Ok");
+                    dynamic json = JsonConvert.DeserializeObject(_configurarVisanet.Configuration.Response);
                 }
+
             }
             catch (Exception ex)
             {
